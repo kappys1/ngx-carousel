@@ -1,10 +1,17 @@
 {
-  "name": "carousel",
+  "name": "ngx-carousel-lib",
   "version": "0.0.1",
   "author": {
     "name": "Alejandro Marcos Gutierrez",
     "email": "alexsbd1@gmail.com"
   },
+  "contributors": [
+    "https://codepen.io/nopr/pen/rfBJx",
+    "https://desandro.github.io/3dtransforms/docs/carousel.html",
+    "https://medium.com/@cyrilletuzi/how-to-build-and-publish-an-angular-module-7ad19c0b4464",
+    "http://idangero.us/swiper/"
+  ],
+  "license": "MIT",
   "keywords": [
     "angular",
     "angular2",

@@ -81,6 +81,7 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
   private itemsCarouselRendered =  0 ;
   @ViewChild(SwiperDirective) swiper: SwiperDirective;
   @Input() morePairSlides = 1;
+  @Input() threshold = 5;
   @Input() angle = 45;
   @Input() ratioScale = 1;
   @Input() margin = 20;
@@ -244,7 +245,7 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
   private rotate(e: any) {
     console.log(e);
     if (!this.carousel.lockSlides) {
-        const velocity = this.carousel.isHorizontal ? e.velocityX / 10 : -e.velocityY / 10;
+        const velocity = this.carousel.isHorizontal ? e.velocityX / this.threshold : -e.velocityY / this.threshold;
         this.setNewDeg(this.carousel.currdeg + velocity * window.devicePixelRatio);
         this.moveCarrousel(this.carousel.currdeg);
         if (e.isFinal && this.endInSlide) {

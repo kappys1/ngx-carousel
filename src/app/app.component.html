@@ -1,29 +1,30 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<carousel-component #topCarousel>
-  <div class="item-carousel">a</div>
-  <div class="item-carousel">
-      <div class="b">
-      </div>
+<header>
+  <div class="content-icon">
+    <img class="icon" src="assets/img/icon.png">
   </div>
-  <div class="item-carousel">c</div>
-  <div class="item-carousel">d</div>
-  <div class="item-carousel">d</div>
-  <div class="item-carousel">d</div>
-  <div class="item-carousel">d</div>
-  <div class="item-carousel">d</div>
-  <div class="item-carousel">d</div>
-</carousel-component>
-
-<div class="parameters-content">
-  <div class="parameter-option">
-    <button (click)="prev()">Prev</button>
+  <div class="content-title">
+    <h1>ngx-carousel</h1>
+    <h2>An lightweight , simple and touchable carousel library</h2>
+    <div class="social-bar">
+      <a href="https://badge.fury.io/js/angular2-carousel"><img src="https://badge.fury.io/js/angular2-carousel.svg" alt="npm version" height="18"></a>
+      <a href="https://badge.fury.io/gh/kappys1%2Fangular2-carousel"><img src="https://badge.fury.io/gh/kappys1%2Fngx-carousel.svg" alt="GitHub version" height="18"></a>
+      <a href="https://twitter.com/alexmarcosg"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=follow" alt="Twitter" height="18"></a>
+    </div>
   </div>
-  <div class="parameter-option">
-    <button (click)="next()">Next</button>
-  </div>
-  <div class="parameter-option">
-    <button (click)="toggle()">TOGGLE</button>
-  </div>
+  <a href="https://github.com/kappys1/ngx-carousel"><img class="forkme" src="assets/img/forkme.png"></a>
+</header>
+<nav class="menu">
+  <a class="button-menu" routerLink="/getStarted"  routerLinkActive="active">Get Started</a>
+  <a class="button-menu" routerLink="/demo"  routerLinkActive="active">Demos</a>
+  <a class="button-menu" routerLink="/api"  routerLinkActive="active">API</a>
+</nav>
+<div class="content">
+  <router-outlet></router-outlet>
 </div>
+<footer>
+  <div>{{year}} © ngx carousel by Alex Marcos</div>
+</footer>
 
-<router-outlet></router-outlet>
+
+

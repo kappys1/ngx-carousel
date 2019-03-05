@@ -1,23 +1,10 @@
-import { CarouselComponent } from './../../projects/carousel/src/lib/components/carousel/carousel.component';
-import { Component, ViewChild } from '@angular/core';
-
+import {Component, ViewChild} from '@angular/core';
+import {CarouselComponent} from 'angular2-carousel';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular7-carousel';
-
-  @ViewChild('topCarousel') topCarousel: CarouselComponent;
-
-  prev() {
-    this.topCarousel.slidePrev();
-  }
-  next() {
-    this.topCarousel.slideNext();
-  }
-  toggle() {
-    this.topCarousel.toggleMode();
-  }
+  year = new Date().getFullYear();
 }
