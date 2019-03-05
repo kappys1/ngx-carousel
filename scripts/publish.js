@@ -28,7 +28,7 @@ function newBuild(){
 }
 
 function updateVersion(type){
-    if(type.indexOf('alpha') !== -1 || type.indexOf('prerelease') !== -1 || type.indexOf('release') !== -1){
+    if(type.indexOf('alpha') !== -1 || type.indexOf('prerelease') !== -1 || type.indexOf('release') !== -1 || type.indexOf('latest') !== -1){
         log('   updating version ...');
         return serialCommands([
                 ['standard-version', ['--'],[`--${type}`]]
