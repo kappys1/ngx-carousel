@@ -1,6 +1,22 @@
 {
   "name": "angular7-carousel",
   "version": "0.0.0",
+  "author": {
+    "name": "Alejandro Marcos Gutierrez",
+    "email": "alexsbd1@gmail.com"
+  },
+  "Keywords": [
+    "angular",
+    "angular2",
+    "angular 2",
+    "angular 4",
+    "ng2",
+    "ngx",
+    "angular5",
+    "angular7",
+    "carousel",
+    "angular carousel"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

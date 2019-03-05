@@ -7,8 +7,9 @@ const ZERO = 0.000000000001;
     exportAs: 'swiper'
 })
 export class SwiperDirective implements OnInit {
-    isDown: boolean = false;
-    initialPos: number = ZERO;
+    isDown = false;
+    initialPosX: number = ZERO;
+    initialPosY: number = ZERO;
     lastPosX: number = ZERO;
     lastPosY: number = ZERO;
     swipeDistanceX: number = ZERO;
@@ -36,16 +37,16 @@ export class SwiperDirective implements OnInit {
 
     getResultFromEvent(event) {
 
-      let swipeFrameDistanceX = event.clientX - this.initialPos - this.lastPosX;
+      let swipeFrameDistanceX = event.clientX - this.initialPosX - this.lastPosX;
       swipeFrameDistanceX = swipeFrameDistanceX < 30 ? swipeFrameDistanceX : 30;
       this.swipeDistanceX += swipeFrameDistanceX;
 
-      let swipeFrameDistanceY = event.clientY - this.initialPos - this.lastPosY;
+      let swipeFrameDistanceY = event.clientY - this.initialPosY - this.lastPosY;
       swipeFrameDistanceY = swipeFrameDistanceY < 30 ? swipeFrameDistanceY : 30;
       this.swipeDistanceY += swipeFrameDistanceY;
 
-      this.lastPosX = event.clientX - this.initialPos;
-      this.lastPosY = event.clientY - this.initialPos;
+      this.lastPosX = event.clientX - this.initialPosX;
+      this.lastPosY = event.clientY - this.initialPosY;
 
       return {
         velocityX: swipeFrameDistanceX,
@@ -61,7 +62,8 @@ export class SwiperDirective implements OnInit {
     onMouseDown(event: any) {
         this.firstSwipeDate = Date.now();
         this.isDown = true;
-        this.initialPos = event.clientX;
+        this.initialPosX = event.clientX;
+        this.initialPosY = event.clientY;
         this.swipeDistanceX = 0;
         this.onSwipeStart.emit();
     }
@@ -71,10 +73,12 @@ export class SwiperDirective implements OnInit {
         if (!this.isDown) {
           return;
         }
-        this.initialPos = this.lastPosX = ZERO;
+        this.initialPosX = this.lastPosX = ZERO;
+        this.initialPosY = this.lastPosY = ZERO;
         this.isDown = false;
         const res = {
           velocityX: 0,
+          velocityY: 0,
           isFinal: !this.isDown,
         };
         if (this.swipeDistanceX > 100) {
@@ -118,16 +122,19 @@ export class SwiperDirective implements OnInit {
     onTouchStart(event: any) {
         const touch = event.touches[0] || event.changedTouches[0];
         this.firstSwipeDate = Date.now();
-        this.initialPos = touch.clientX;
+        this.initialPosX = touch.clientX;
+        this.initialPosY = touch.clientY;
         this.swipeDistanceX = ZERO;
         this.onSwipeStart.emit();
     }
 
     @HostListener('touchend', ['$event'])
     onTouchEnd(event: any) {
-        this.initialPos = this.lastPosX = ZERO;
+        this.initialPosX = this.lastPosX = ZERO;
+        this.initialPosY = this.lastPosX = ZERO;
         const res = {
           velocityX: 0,
+          velocityY: 0,
           isFinal: true,
         };
         if (this.swipeDistanceX > 100) {

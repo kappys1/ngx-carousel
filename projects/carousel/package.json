@@ -1,6 +1,22 @@
 {
   "name": "carousel",
   "version": "0.0.1",
+  "author": {
+    "name": "Alejandro Marcos Gutierrez",
+    "email": "alexsbd1@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "angular2",
+    "angular 2",
+    "angular 4",
+    "ng2",
+    "ngx",
+    "angular5",
+    "angular7",
+    "carousel",
+    "angular carousel"
+  ],
   "peerDependencies": {
     "@angular/common": "^7.1.0",
     "@angular/core": "^7.1.0"
