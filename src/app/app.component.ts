@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {CarouselComponent} from 'angular2-carousel';
+import { CarouselComponent } from 'projects/carousel/src/public_api';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
