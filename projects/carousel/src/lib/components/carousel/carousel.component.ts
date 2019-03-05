@@ -75,7 +75,6 @@ import { SwiperDirective } from '../../directives/swiper.directive';
 })
 export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
 
-
   public carousel: Carousel;
   private radius: any;
   private rotationFn: string;
@@ -126,8 +125,6 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
   @ViewChild('carousel') carouselElm: ElementRef;
   @ViewChild('container') containerElm: ElementRef;
 
-
-
   constructor(private componentElement: ElementRef) {
     this.carousel = new Carousel();
   }
@@ -150,19 +147,15 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    for (let i = 0; i < Object.keys(changes).length; i++) {
-        if (
-          changes[Object.keys(changes)[i]].currentValue !== changes[Object.keys(changes)[i]].previousValue &&
-          !changes[Object.keys(changes)[i]].isFirstChange()) {
-            this.update();
-            this.onChangeProperties.emit(changes);
-        }
-    }
-
+    Object.keys(changes).map(val => {
+      if (changes[val].currentValue !== changes[val].previousValue && !changes[val].isFirstChange()) {
+          this.update();
+          this.onChangeProperties.emit(changes);
+      }
+    });
   }
 
   ngAfterViewInit() {
-
     this.initEventsPan();
     this.configPlugin();
     setTimeout( function() {
@@ -182,6 +175,7 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
       setTimeout( () =>  vm.detectCurrentSlide());
     }
   }
+
   public slidePrev() {
     if (this.checkLimitsCarrousel(this.carousel.activeIndex - 1)) {
       this.moveSlideTo(this.carousel.activeIndex - 1);
@@ -189,6 +183,7 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
       setTimeout( () =>  vm.detectCurrentSlide());
     }
   }
+
   public slideTo(index: number) {
     if (this.checkLimitsCarrousel(index)) {
       this.moveSlideTo(index);
@@ -201,10 +196,12 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
       this.autoPlay = true;
       this.autoPlaySlide();
   }
+
   public autoPlayStop() {
       clearInterval(this.autoPlayTimeout);
       this.carousel.autoPlayIsRunning = false;
   }
+
   public toggleMode() {
       this.mode = this.mode === 'vertical' ? 'horizontal' : 'vertical';
       this.update();
@@ -227,16 +224,7 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
       this.setTransformCarrousel(-this.carousel.degreesSlides[this.carousel.activeIndex]);
   }
 
-
-
   private configPlugin() {
-    // this.setPerspectiveContainer();
-    // this.checkRotation();
-    // this.carousel.items = Array.from(this.carouselElm.nativeElement.getElementsByClassName('item-carousel'));
-    // this.carousel.totalItems = this.carousel.items.length;
-    // this.getmaxSizes();
-    // this.carousel.lockSlides = this.lockSlides;
-    // this.setDegreesOnSlides();
     this.update();
     this.manageEvents();
     this.initSlidesOn();
@@ -244,12 +232,8 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
     this.autoPlaySlide();
   }
 
-
   private initEventsPan() {
-      this.swiper.onSwipeLeft.subscribe((distance: number) => {
-        this.rotate(distance);
-      });
-      this.swiper.onSwipeRight.subscribe((distance: number) => {
+      this.swiper.onSwipe.subscribe((distance: number) => {
         this.rotate(distance);
       });
       this.swiper.onSwipeEnd.subscribe((distance: number) => {
@@ -258,18 +242,13 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   private rotate(e: any) {
-    // console.log(e);
+    console.log(e);
     if (!this.carousel.lockSlides) {
         const velocity = this.carousel.isHorizontal ? e.velocityX / 10 : -e.velocityY / 10;
-        console.log(this.carousel.currdeg + velocity * window.devicePixelRatio);
-
         this.setNewDeg(this.carousel.currdeg + velocity * window.devicePixelRatio);
         this.moveCarrousel(this.carousel.currdeg);
-        if (e.isFinal) {
-            if (this.endInSlide) {
-                this.moveSlideTo(this.carousel.activeIndex);
-                console.log(this.carousel.activeIndex);
-            }
+        if (e.isFinal && this.endInSlide) {
+          this.moveSlideTo(this.carousel.activeIndex);
         }
     }
   }
@@ -332,6 +311,7 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
     this.detectCurrentSlide();
 
   }
+
   private setTransformCarrousel(deg: number) {
     const transform = `translateZ(${-this.radius}px) ${this.rotationFn}(${deg}deg)`;
     this.carouselElm.nativeElement.style.transform = transform;
@@ -353,28 +333,28 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
 
   private getmaxSizes() {
     this.carousel.items.map((val: any) => {
-      const witdh = val.offsetWidth;
+      const width = val.offsetWidth;
       const height = val.offsetHeight;
       this.carousel.maxWidthSize = 0;
-      this.carousel.maxHeigthSize = 0;
-      if ( witdh > this.carousel.maxWidthSize) {
-        this.carousel.maxWidthSize = witdh;
+      this.carousel.maxHeightSize = 0;
+      if ( width > this.carousel.maxWidthSize) {
+        this.carousel.maxWidthSize = width;
           this.carousel.totalWidth = this.carousel.items.length * this.carousel.maxWidthSize;
       }
-      if ( height > this.carousel.maxHeigthSize) {
-        this.carousel.maxHeigthSize = height;
-          this.carousel.totalWidth = this.carousel.items.length * this.carousel.maxHeigthSize;
+      if ( height > this.carousel.maxHeightSize) {
+        this.carousel.maxHeightSize = height;
+          this.carousel.totalWidth = this.carousel.items.length * this.carousel.maxHeightSize;
       }
     });
     this.setContainerWithMaxSize();
   }
   private setContainerWithMaxSize() {
     this.containerElm.nativeElement.style.width = this.carousel.maxWidthSize + 'px';
-    this.containerElm.nativeElement.style.height = this.carousel.maxHeigthSize + 'px';
+    this.containerElm.nativeElement.style.height = this.carousel.maxHeightSize + 'px';
   }
   private setDegreesOnSlides() {
     let auxDegree = 0;
-    const panelSize = this.carousel.isHorizontal ? this.carousel.maxWidthSize : this.carousel.maxHeigthSize;
+    const panelSize = this.carousel.isHorizontal ? this.carousel.maxWidthSize : this.carousel.maxHeightSize;
     this.radius = (Math.round( ( panelSize / 2 ) /
       Math.tan( Math.PI / (360 / this.angle) ) ) + this.margin);
     this.carousel.degreesSlides = [];
@@ -446,28 +426,18 @@ export class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
       preventDefault: true
     };
     const vm = this;
-    // const hammertime = new Hammer(this.carouselElm.nativeElement, options);
 
-
-    // hammertime.on('panstart', function(e) {
-    //     vm.onSlideMoveStart.emit({ carousel: vm.carousel, event: e});
-    // });
-    // hammertime.on('panend', function(e) {
-    //     vm.onSlideMoveEnd.emit({ carousel: vm.carousel, event: e});
-    // });
-    // hammertime.on('pan', function(e) {
-    //     vm.onSlideMove.emit({carousel: vm.carousel, event: e});
-    // });
-
-
-    this.carouselElm.nativeElement.addEventListener('touchstart', (e: any) => {
-        vm.onTouchStart.emit({carousel: vm.carousel, event: e});
+    this.swiper.onSwipe.subscribe((e: number) => {
+      vm.onSlideMove.emit({ carousel: vm.carousel, event: e});
+      vm.onTouchMove.emit({carousel: vm.carousel, event: e});
     });
-    this.carouselElm.nativeElement.addEventListener('touchmove', (e: any) => {
-        vm.onTouchMove.emit({carousel: vm.carousel, event: e});
+    this.swiper.onSwipeStart.subscribe((e: number) => {
+      vm.onSlideMoveStart.emit({ carousel: vm.carousel, event: e});
+      vm.onTouchStart.emit({carousel: vm.carousel, event: e});
     });
-    this.carouselElm.nativeElement.addEventListener('touchend', (e: any) => {
-        vm.onTouchEnd.emit({ carousel: vm.carousel, event: e});
+    this.swiper.onSwipeEnd.subscribe((e: number) => {
+      vm.onSlideMoveEnd.emit({ carousel: vm.carousel, event: e});
+      vm.onTouchEnd.emit({ carousel: vm.carousel, event: e});
     });
 
     this.carouselElm.nativeElement.addEventListener('transitionend', (e: any) => {

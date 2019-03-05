@@ -12,7 +12,7 @@ export default class Carousel {
   private _currdeg = 0;
   private _totalItems = 0;
   private _maxWidthSize = 0;
-  private _maxHeigthSize = 0;
+  private _maxHeightSize = 0;
   private _maxDegree = 0;
   private _totalWidth = 0;
   private _isHorizontal = false;
@@ -65,12 +65,12 @@ export default class Carousel {
     this._maxWidthSize = value;
   }
 
-  get maxHeigthSize(): number {
-      return this._maxHeigthSize;
+  get maxHeightSize(): number {
+      return this._maxHeightSize;
   }
 
-  set maxHeigthSize(value: number) {
-      this._maxHeigthSize = value;
+  set maxHeightSize(value: number) {
+      this._maxHeightSize = value;
   }
 
   get maxDegree(): number {
