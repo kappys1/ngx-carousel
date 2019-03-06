@@ -4,14 +4,14 @@ import { CarouselComponent } from 'projects/carousel/src/public_api';
 @Component({
   selector: 'app-properties-carousel',
   templateUrl: './properties-carousel.component.html',
-  styleUrls: ['../simple-carousel/simple-carousel.component.css']
+  styleUrls: ['./properties-carousel.component.css']
 })
-export class PropertiesCarouselComponent implements OnInit,OnChanges {
+export class PropertiesCarouselComponent implements OnInit, OnChanges {
 
   constructor() { }
-  public time=300;
-  public mode='horizontal';
-  public perspective =2000;
+  public time = 300;
+  public mode = 'horizontal';
+  public perspective = 2000;
   public init = 0;
 
   @ViewChild('topCarousel') topCarousel: CarouselComponent;
@@ -22,7 +22,7 @@ export class PropertiesCarouselComponent implements OnInit,OnChanges {
     console.log(sample);
   }
 
-  reset(){
+  reset() {
     console.log('click', this);
     this.topCarousel.reInit();
   }

@@ -5,7 +5,7 @@ import { CarouselComponent } from 'projects/carousel/src/public_api';
 @Component({
   selector: 'app-functions-carousel',
   templateUrl: './functions-carousel.component.html',
-  styleUrls: ['../simple-carousel/simple-carousel.component.css']
+  styleUrls: ['./functions-carousel.component.css']
 })
 export class FunctionsCarouselComponent implements OnInit {
 
@@ -16,10 +16,10 @@ export class FunctionsCarouselComponent implements OnInit {
   ngOnInit() {
   }
 
-  prev(){
+  prev() {
     this.topCarousel.slidePrev();
   }
-  next(){
+  next() {
     this.topCarousel.slideNext();
   }
 }

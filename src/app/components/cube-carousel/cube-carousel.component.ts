@@ -4,7 +4,7 @@ import { CarouselComponent } from 'projects/carousel/src/public_api';
 @Component({
   selector: 'app-cube-carousel',
   templateUrl: './cube-carousel.component.html',
-  styleUrls: ['../simple-carousel/simple-carousel.component.css']
+  styleUrls: ['./cube-carousel.component.css']
 })
 export class CubeCarouselComponent implements OnInit {
 
