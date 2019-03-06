@@ -1,6 +1,8 @@
 # ngxCarousel
 
-> An lightweight, touchable and responsive library to create a carousel for angular 2+
+> An lightweight, touchable and responsive library to create a carousel for angular
+
+> No dependencies, no more HAMMER.
 
 [![npm version](https://badge.fury.io/js/ngx-carousel-lib.svg)](https://badge.fury.io/js/ngx-carousel-lib) ![Angular2+](https://img.shields.io/badge/Angular_2+-passing-brightgreen.svg?style=flat) ![Angular2+](https://img.shields.io/badge/Angular_7-success-brightgreen.svg?style=flat) ![licence](https://img.shields.io/badge/licence-MIT-blue.svg?style=flat)
 
