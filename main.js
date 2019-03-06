@@ -202,7 +202,6 @@ var CarouselComponent = /** @class */ (function () {
         });
     };
     CarouselComponent.prototype.rotate = function (e) {
-        console.log(e);
         if (!this.carousel.lockSlides) {
             var velocity = this.carousel.isHorizontal ? e.velocityX / this.threshold : -e.velocityY / this.threshold;
             this.setNewDeg(this.carousel.currdeg + velocity * window.devicePixelRatio);
@@ -1707,10 +1706,10 @@ __webpack_require__.r(__webpack_exports__);
 var SimpleCarouselComponent = /** @class */ (function () {
     function SimpleCarouselComponent() {
         this.images = [
-            "https://dqqzjdqmiszdy.cloudfront.net/sites/default/files/html5_assets/frames_minions_char_3_mob.png",
-            "http://i2.wp.com/farm1.staticflickr.com/502/19162022903_f8cd8501af.jpg?resize=500%2C271&ssl=1",
-            "https://i.pinimg.com/736x/78/1d/29/781d2914510339a762267ed4913cb62b.jpg",
-            "https://www.losminionsaldia.com/images/mas-minions/minion.png"
+            'https://dqqzjdqmiszdy.cloudfront.net/sites/default/files/html5_assets/frames_minions_char_3_mob.png',
+            'http://i2.wp.com/farm1.staticflickr.com/502/19162022903_f8cd8501af.jpg?resize=500%2C271&ssl=1',
+            'https://i.pinimg.com/736x/78/1d/29/781d2914510339a762267ed4913cb62b.jpg',
+            'https://www.losminionsaldia.com/images/mas-minions/minion.png'
         ];
     }
     SimpleCarouselComponent.prototype.toggle = function () {
