@@ -1962,7 +1962,7 @@ module.exports = "*{\n  font-size: 2vh;\n}\nh1{\n  font-size: 5vh;\n  font-weigh
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Getting Started with Angular Carousel</h1>\n<h2>1a Download and Install</h2>\n<p>First, you need download library:</p>\n<ul>\n  <li>We can download them from <a href=\"https://github.com/kappys1/ngx-carousel\">NEW Swiper GitHub repository</a></li>\n  <li>\n    Or, using NPM\n    <pre>\n      <div class=\"code hljs ruby\">\n        npm install --save angular2-carrousel\n      </div>\n    </pre>\n  </li>\n</ul>\n\n<h2>2a Usage</h2>\n<p>First tou need to provide the CarouselModule to your desired Module</p>\n<pre >\n      <div class=\"code hljs ruby\" [innerHTML]=\"html | safeHtml\">\n\n      </div>\n</pre>\n<h2>3. Add Carousel HTML Layout</h2>\n<p>Now, you can use CarouselModule as follow:</p>\n<pre >\n      <div class=\"code hljs ruby\" [innerHTML]=\"html2 | safeHtml\">\n\n      </div>\n</pre>\n<p><b>All slides of carousel must have \"<i>.item-carousel</i>\" </b></p>\n<b><a href=\"https://embed.plnkr.co/CPWvmndIgpsglCvLChhc/\">Preview plnkr</a></b>\n"
+module.exports = "<h1>Getting Started with Angular Carousel</h1>\n<h2>1a Download and Install</h2>\n<p>First, you need download library:</p>\n<ul>\n  <li>We can download them from <a href=\"https://github.com/kappys1/ngx-carousel\">NEW Swiper GitHub repository</a></li>\n  <li>\n    Or, using NPM\n    <pre>\n      <div class=\"code hljs ruby\">\n        npm install --save ngx-carousel-lib\n      </div>\n    </pre>\n  </li>\n</ul>\n\n<h2>2a Usage</h2>\n<p>First tou need to provide the CarouselModule to your desired Module</p>\n<pre >\n      <div class=\"code hljs ruby\" [innerHTML]=\"html | safeHtml\">\n\n      </div>\n</pre>\n<h2>3. Add Carousel HTML Layout</h2>\n<p>Now, you can use CarouselModule as follow:</p>\n<pre >\n      <div class=\"code hljs ruby\" [innerHTML]=\"html2 | safeHtml\">\n\n      </div>\n</pre>\n<p><b>All slides of carousel must have \"<i>.item-carousel</i>\" </b></p>\n<b><a href=\"https://embed.plnkr.co/CPWvmndIgpsglCvLChhc/\">Preview plnkr</a></b>\n"
 
 /***/ }),
 
@@ -1982,7 +1982,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var GetStartedComponent = /** @class */ (function () {
     function GetStartedComponent() {
-        this.html = "\n         import {CarouselModule} from \"angular2-carousel\";\n        // In your App's module or Custom Module:\n        @NgModule({\n            imports: [\n               CarouselModule\n            ]\n        })\n  ";
+        this.html = "\n         import {CarouselModule} from \"ngx-carousel-lib\";\n        // In your App's module or Custom Module:\n        @NgModule({\n            imports: [\n               CarouselModule\n            ]\n        })\n  ";
         this.html2 = "\n        < carousel-component >\n            < div class=\"item-carousel\" >a < /div >\n            < div class=\"item-carousel\" >\n                < div class=\"b\" >\n                    < img/ src=\"https://www.losminionsaldia.com/images/mas-minions/minion.png\">\n                < /div >\n            < /div>\n            < div class=\"item-carousel\" >c< /div>\n            < div class=\"item-carousel\" >d< /div>\n          < /carousel-component>\n      ";
         this.systemjsImport = '' +
             'System.config({\n' +
@@ -2104,7 +2104,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/alexmarcos/Documents/Projects/ANGULAR/ngx-carousel/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/alex/projects/pruebas/angular7-carousel/src/main.ts */"./src/main.ts");
 
 
 /***/ })
