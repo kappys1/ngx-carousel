@@ -50,7 +50,7 @@ Now, you can use CarouselModule as follow:
 **All slides of carousel must have ``.item-carousel``**
 
 
-#### [Preview](https://embed.plnkr.co/CPWvmndIgpsglCvLChhc/)
+#### [Preview](https://codesandbox.io/s/nw2j72v400)
 
 ## API Documentation
 #### you can see [here](https://github.com/kappys1/ngx-carousel/wiki/API-Documentation) or in [web](https://kappys1.github.io/ngx-carousel)
